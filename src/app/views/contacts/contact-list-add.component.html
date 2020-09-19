@@ -13,7 +13,7 @@
             (contactForm.controls['firstName'].dirty ||
             contactForm.controls['firstName'].touched)">
               <div class="alert-danger" *ngIf="contactForm.controls['firstName'].errors.required">
-                First name is required.
+                <p class="fade-in">First name is required.</p>
               </div>
             </div>
           </div>
@@ -23,7 +23,7 @@
                       (contactForm.controls['lastName'].dirty ||
                       contactForm.controls['lastName'].touched)">
               <div class="alert-danger" *ngIf="contactForm.controls['lastName'].errors.required">
-                Last name is required.
+                <p class="fade-in">Last name is required.</p>
               </div>
             </div>
           </div>
@@ -36,7 +36,7 @@
                       (contactForm.controls['company'].dirty ||
                       contactForm.controls['company'].touched)">
               <div class="alert-danger" *ngIf="contactForm.controls['company'].errors.required">
-                Company name is required.
+                <p class="fade-in">Company name is required.</p>
               </div>
             </div>
           </div>
@@ -47,7 +47,7 @@
                       contactForm.controls['email'].touched)">
               <div class="alert-danger" *ngIf="contactForm.controls['email'].errors.required ||
                  !isValidEmail(contactForm.controls['email'].value)">
-                Email address is required.
+                <p class="fade-in">Valid email is required.</p>
               </div>
             </div>
           </div>
@@ -60,7 +60,7 @@
                       (contactForm.controls['phone'].dirty ||
                       contactForm.controls['phone'].touched)">
               <div class="alert-danger" *ngIf="contactForm.controls['phone'].errors.required">
-                Phone number is required.
+                <p class="fade-in">Phone number is required.</p>
               </div>
             </div>
           </div>
@@ -70,7 +70,7 @@
                       (contactForm.controls['address'].dirty ||
                       contactForm.controls['address'].touched)">
               <div class="alert-danger" *ngIf="contactForm.controls['address'].errors.required">
-                Address is required.
+                <p class="fade-in">Address is required.</p>
               </div>
             </div>
           </div>
