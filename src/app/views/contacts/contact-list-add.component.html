@@ -1,0 +1,89 @@
+<div class="main">
+  <div class="container-fluid col-md-6">
+    <h2 class="text-center lead">Add Contact</h2>
+    <br />
+    <!--Template Driven Form or Model Driven Form?-->
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm)">
+      <div>
+        <div class="row">
+          <div class="col-md-6">
+            <input type="text" class="form-control" id="firstName" placeholder="First Name"
+              formControlName="firstName" />
+            <div *ngIf="contactForm.controls['firstName'].invalid &&
+            (contactForm.controls['firstName'].dirty ||
+            contactForm.controls['firstName'].touched)">
+              <div class="alert-danger" *ngIf="contactForm.controls['firstName'].errors.required">
+                First name is required.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" id="lastName" placeholder="Last Name" formControlName="lastName" />
+            <div *ngIf="contactForm.controls['lastName'].invalid &&
+                      (contactForm.controls['lastName'].dirty ||
+                      contactForm.controls['lastName'].touched)">
+              <div class="alert-danger" *ngIf="contactForm.controls['lastName'].errors.required">
+                Last name is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-md-6">
+            <input type="text" class="form-control" id="company" placeholder="Company" formControlName="company" />
+            <div *ngIf="contactForm.controls['company'].invalid &&
+                      (contactForm.controls['company'].dirty ||
+                      contactForm.controls['company'].touched)">
+              <div class="alert-danger" *ngIf="contactForm.controls['company'].errors.required">
+                Company name is required.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" id="email" placeholder="Email" formControlName="email" />
+            <div *ngIf="contactForm.controls['email'].invalid &&
+                      (contactForm.controls['email'].dirty ||
+                      contactForm.controls['email'].touched)">
+              <div class="alert-danger" *ngIf="contactForm.controls['email'].errors.required ||
+                 !isValidEmail(contactForm.controls['email'].value)">
+                Email address is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-md-6">
+            <input type="text" class="form-control" id="phone" placeholder="Phone" formControlName="phone" />
+            <div *ngIf="contactForm.controls['phone'].invalid &&
+                      (contactForm.controls['phone'].dirty ||
+                      contactForm.controls['phone'].touched)">
+              <div class="alert-danger" *ngIf="contactForm.controls['phone'].errors.required">
+                Phone number is required.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" id="address" placeholder="Address" formControlName="address" />
+            <div *ngIf="contactForm.controls['address'].invalid &&
+                      (contactForm.controls['address'].dirty ||
+                      contactForm.controls['address'].touched)">
+              <div class="alert-danger" *ngIf="contactForm.controls['address'].errors.required">
+                Address is required.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--Disable if form is invalid-->
+      <div class="alert-success" *ngIf="submitSuccess && contactForm.valid">
+        New contact added successfully!
+      </div>
+      <button id="btnAddContact" type="submit" class="addContact" [disabled]="!contactForm.valid">
+        Add Contact
+      </button>
+    </form>
+  </div>
+</div>
