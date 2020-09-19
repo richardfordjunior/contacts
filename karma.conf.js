@@ -18,7 +18,13 @@ module.exports = function (config) {
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, './coverage/quicken-loans'),
       reports: ['html', 'lcovonly', 'text-summary'],
-      fixWebpackSourcePaths: true
+      fixWebpackSourcePaths: true,
+      thresholds: {
+        statements: 70,
+        lines: 70,
+        branches: 0,
+        functions: 70
+      }
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
